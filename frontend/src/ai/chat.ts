@@ -257,6 +257,9 @@ class OpenAiProviderClient implements ProviderClient {
 /**
  * Factory function to create the appropriate provider client.
  */
+  /**
+   * TODO: Add description for createProviderClient
+   */
 function createProviderClient(provider: AiProvider): ProviderClient {
   switch (provider) {
     case 'openai':
@@ -292,7 +295,13 @@ export class TokenCounter {
 
   static estimateCost(model: string, promptTokens: number, completionTokens: number): number {
     const rates = COST_PER_1K_TOKENS[model] ?? { input: 0.005, output: 0.015 };
+  /**
+   * TODO: Add description for inputCost
+   */
     const inputCost = (promptTokens / 1000) * rates.input;
+  /**
+   * TODO: Add description for outputCost
+   */
     const outputCost = (completionTokens / 1000) * rates.output;
     return inputCost + outputCost;
   }
